@@ -1505,3 +1505,8 @@ typedef enum {
  *
  */
 
+/*
+ * Segway Robotic Mobility Platform USB interface (using VID 0x0403)
+ * Submitted by John G. Rogers
+ */
+#define SEGWAY_RMP200_PID	0xe729
