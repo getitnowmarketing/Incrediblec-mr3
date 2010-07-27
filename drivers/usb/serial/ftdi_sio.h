@@ -47,6 +47,56 @@
 /* www.candapter.com Ewert Energy Systems CANdapter device */
 #define FTDI_CANDAPTER_PID 0x9F80 /* Product Id */
 
+#define FTDI_NXTCAM_PID		0xABB8 /* NXTCam for Mindstorms NXT */
+
+/* US Interface Navigator (http://www.usinterface.com/) */
+#define FTDI_USINT_CAT_PID	0xb810	/* Navigator CAT and 2nd PTT lines */
+#define FTDI_USINT_WKEY_PID	0xb811	/* Navigator WKEY and FSK lines */
+#define FTDI_USINT_RS232_PID	0xb812	/* Navigator RS232 and CONFIG lines */
+
+/* OOCDlink by Joern Kaipf <joernk@web.de>
+ * (http://www.joernonline.de/dw/doku.php?id=start&idx=projects:oocdlink) */
+#define FTDI_OOCDLINK_PID	0xbaf8	/* Amontec JTAGkey */
+
+/* Luminary Micro Stellaris Boards, VID = FTDI_VID */
+/* FTDI 2332C Dual channel device, side A=245 FIFO (JTAG), Side B=RS232 UART */
+#define LMI_LM3S_DEVEL_BOARD_PID	0xbcd8
+#define LMI_LM3S_EVAL_BOARD_PID		0xbcd9
+
+#define FTDI_TURTELIZER_PID	0xBDC8 /* JTAG/RS-232 adapter by egnite GmBH */
+
+/* OpenDCC (www.opendcc.de) product id */
+#define FTDI_OPENDCC_PID	0xBFD8
+#define FTDI_OPENDCC_SNIFFER_PID	0xBFD9
+#define FTDI_OPENDCC_THROTTLE_PID	0xBFDA
+#define FTDI_OPENDCC_GATEWAY_PID	0xBFDB
+
+/*
+ * RR-CirKits LocoBuffer USB (http://www.rr-cirkits.com)
+ */
+#define FTDI_RRCIRKITS_LOCOBUFFER_PID	0xc7d0	/* LocoBuffer USB */
+
+/* DMX4ALL DMX Interfaces */
+#define FTDI_DMX4ALL 0xC850
+
+/*
+ * ASK.fr devices
+ */
+#define FTDI_ASK_RDR400_PID	0xC991	/* ASK RDR 400 series card reader */
+
+/* www.starting-point-systems.com µChameleon device */
+#define FTDI_MICRO_CHAMELEON_PID	0xCAA0	/* Product Id */
+
+/*
+ * Tactrix OpenPort (ECU) devices.
+ * OpenPort 1.3M submitted by Donour Sizemore.
+ * OpenPort 1.3S and 1.3U submitted by Ian Abbott.
+ */
+#define FTDI_TACTRIX_OPENPORT_13M_PID	0xCC48	/* OpenPort 1.3 Mitsubishi */
+#define FTDI_TACTRIX_OPENPORT_13S_PID	0xCC49	/* OpenPort 1.3 Subaru */
+#define FTDI_TACTRIX_OPENPORT_13U_PID	0xCC4A	/* OpenPort 1.3 Universal */
+
+>>>>>>> USB: ftdi_sio: device id for Navitator:drivers/usb/serial/ftdi_sio_ids.h
 /* SCS HF Radio Modems PID's (http://www.scs-ptc.com) */
 /* the VID is the standard ftdi vid (FTDI_VID) */
 #define FTDI_SCS_DEVICE_0_PID 0xD010    /* SCS PTC-IIusb */
