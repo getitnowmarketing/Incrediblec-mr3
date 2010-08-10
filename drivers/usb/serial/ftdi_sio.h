@@ -985,6 +985,12 @@
 #define STK541_PID		0x2109 /* Zigbee Controller */
 
 /*
+ * Ionics PlugComputer
+ */
+#define IONICS_VID			0x1c0c
+#define IONICS_PLUGCOMPUTER_PID		0x0102
+
+/*
  * Dresden Elektronic Sensor Terminal Board
  */
 #define DE_VID			0x1cf1 /* Vendor ID */
