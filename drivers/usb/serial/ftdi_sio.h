@@ -96,7 +96,6 @@
 #define FTDI_TACTRIX_OPENPORT_13S_PID	0xCC49	/* OpenPort 1.3 Subaru */
 #define FTDI_TACTRIX_OPENPORT_13U_PID	0xCC4A	/* OpenPort 1.3 Universal */
 
->>>>>>> USB: ftdi_sio: device id for Navitator:drivers/usb/serial/ftdi_sio_ids.h
 /* SCS HF Radio Modems PID's (http://www.scs-ptc.com) */
 /* the VID is the standard ftdi vid (FTDI_VID) */
 #define FTDI_SCS_DEVICE_0_PID 0xD010    /* SCS PTC-IIusb */
@@ -108,8 +107,136 @@
 #define FTDI_SCS_DEVICE_6_PID 0xD016
 #define FTDI_SCS_DEVICE_7_PID 0xD017
 
+
 /* ACT Solutions HomePro ZWave interface (http://www.act-solutions.com/HomePro.htm) */
 #define FTDI_ACTZWAVE_PID	0xF2D0
+
+/* iPlus device */
+#define FTDI_IPLUS_PID 0xD070 /* Product Id */
+#define FTDI_IPLUS2_PID 0xD071 /* Product Id */
+
+/*
+ * Gamma Scout (http://gamma-scout.com/). Submitted by rsc@runtux.com.
+ */
+#define FTDI_GAMMA_SCOUT_PID		0xD678	/* Gamma Scout online */
+
+/* Propox devices */
+#define FTDI_PROPOX_JTAGCABLEII_PID	0xD738
+
+/* Lenz LI-USB Computer Interface. */
+#define FTDI_LENZ_LIUSB_PID	0xD780
+
+/*
+ * Xsens Technologies BV products (http://www.xsens.com).
+ */
+#define XSENS_CONVERTER_0_PID	0xD388
+#define XSENS_CONVERTER_1_PID	0xD389
+#define XSENS_CONVERTER_2_PID	0xD38A
+#define XSENS_CONVERTER_3_PID	0xD38B
+#define XSENS_CONVERTER_4_PID	0xD38C
+#define XSENS_CONVERTER_5_PID	0xD38D
+#define XSENS_CONVERTER_6_PID	0xD38E
+#define XSENS_CONVERTER_7_PID	0xD38F
+
+/*
+ * NDI (www.ndigital.com) product ids
+ */
+#define FTDI_NDI_HUC_PID		0xDA70	/* NDI Host USB Converter */
+#define FTDI_NDI_SPECTRA_SCU_PID	0xDA71	/* NDI Spectra SCU */
+#define FTDI_NDI_FUTURE_2_PID		0xDA72	/* NDI future device #2 */
+#define FTDI_NDI_FUTURE_3_PID		0xDA73	/* NDI future device #3 */
+#define FTDI_NDI_AURORA_SCU_PID		0xDA74	/* NDI Aurora SCU */
+
+/*
+ * Westrex International devices submitted by Cory Lee
+ */
+#define FTDI_WESTREX_MODEL_777_PID	0xDC00	/* Model 777 */
+#define FTDI_WESTREX_MODEL_8900F_PID	0xDC01	/* Model 8900F */
+
+/*
+ * ACG Identification Technologies GmbH products (http://www.acg.de/).
+ * Submitted by anton -at- goto10 -dot- org.
+ */
+#define FTDI_ACG_HFDUAL_PID		0xDD20	/* HF Dual ISO Reader (RFID) */
+
+/*
+ * Definitions for Artemis astronomical USB based cameras
+ * Check it at http://www.artemisccd.co.uk/
+ */
+#define FTDI_ARTEMIS_PID	0xDF28	/* All Artemis Cameras */
+
+/*
+ * Definitions for ATIK Instruments astronomical USB based cameras
+ * Check it at http://www.atik-instruments.com/
+ */
+#define FTDI_ATIK_ATK16_PID	0xDF30	/* ATIK ATK-16 Grayscale Camera */
+#define FTDI_ATIK_ATK16C_PID	0xDF32	/* ATIK ATK-16C Colour Camera */
+#define FTDI_ATIK_ATK16HR_PID	0xDF31	/* ATIK ATK-16HR Grayscale Camera */
+#define FTDI_ATIK_ATK16HRC_PID	0xDF33	/* ATIK ATK-16HRC Colour Camera */
+#define FTDI_ATIK_ATK16IC_PID   0xDF35  /* ATIK ATK-16IC Grayscale Camera */
+
+/*
+ * Yost Engineering, Inc. products (www.yostengineering.com).
+ * PID 0xE050 submitted by Aaron Prose.
+ */
+#define FTDI_YEI_SERVOCENTER31_PID	0xE050	/* YEI ServoCenter3.1 USB */
+
+/*
+ * ELV USB devices submitted by Christian Abt of ELV (www.elv.de).
+ * All of these devices use FTDI's vendor ID (0x0403).
+ * Further IDs taken from ELV Windows .inf file.
+ *
+ * The previously included PID for the UO 100 module was incorrect.
+ * In fact, that PID was for ELV's UR 100 USB-RS232 converter (0xFB58).
+ *
+ * Armin Laeuger originally sent the PID for the UM 100 module.
+ */
+#define FTDI_ELV_USR_PID	0xE000	/* ELV Universal-Sound-Recorder */
+#define FTDI_ELV_MSM1_PID	0xE001	/* ELV Mini-Sound-Modul */
+#define FTDI_ELV_KL100_PID	0xE002	/* ELV Kfz-Leistungsmesser KL 100 */
+#define FTDI_ELV_WS550_PID	0xE004	/* WS 550 */
+#define FTDI_ELV_EC3000_PID	0xE006	/* ENERGY CONTROL 3000 USB */
+#define FTDI_ELV_WS888_PID	0xE008	/* WS 888 */
+#define FTDI_ELV_TWS550_PID	0xE009	/* Technoline WS 550 */
+#define FTDI_ELV_FEM_PID	0xE00A	/* Funk Energie Monitor */
+#define FTDI_ELV_FHZ1300PC_PID	0xE0E8	/* FHZ 1300 PC */
+#define FTDI_ELV_WS500_PID	0xE0E9	/* PC-Wetterstation (WS 500) */
+#define FTDI_ELV_HS485_PID	0xE0EA	/* USB to RS-485 adapter */
+#define FTDI_ELV_UMS100_PID	0xE0EB	/* ELV USB Master-Slave Schaltsteckdose UMS 100 */
+#define FTDI_ELV_TFD128_PID	0xE0EC	/* ELV Temperatur-Feuchte-Datenlogger TFD 128 */
+#define FTDI_ELV_FM3RX_PID	0xE0ED	/* ELV Messwertuebertragung FM3 RX */
+#define FTDI_ELV_WS777_PID	0xE0EE	/* Conrad WS 777 */
+#define FTDI_ELV_EM1010PC_PID	0xE0EF	/* Engery monitor EM 1010 PC */
+#define FTDI_ELV_CSI8_PID	0xE0F0	/* Computer-Schalt-Interface (CSI 8) */
+#define FTDI_ELV_EM1000DL_PID	0xE0F1	/* PC-Datenlogger fuer Energiemonitor (EM 1000 DL) */
+#define FTDI_ELV_PCK100_PID	0xE0F2	/* PC-Kabeltester (PCK 100) */
+#define FTDI_ELV_RFP500_PID	0xE0F3	/* HF-Leistungsmesser (RFP 500) */
+#define FTDI_ELV_FS20SIG_PID	0xE0F4	/* Signalgeber (FS 20 SIG) */
+#define FTDI_ELV_UTP8_PID	0xE0F5	/* ELV UTP 8 */
+#define FTDI_ELV_WS300PC_PID	0xE0F6	/* PC-Wetterstation (WS 300 PC) */
+#define FTDI_ELV_WS444PC_PID	0xE0F7	/* Conrad WS 444 PC */
+#define FTDI_PHI_FISCO_PID      0xE40B  /* PHI Fisco USB to Serial cable */
+#define FTDI_ELV_UAD8_PID	0xF068	/* USB-AD-Wandler (UAD 8) */
+#define FTDI_ELV_UDA7_PID	0xF069	/* USB-DA-Wandler (UDA 7) */
+#define FTDI_ELV_USI2_PID	0xF06A	/* USB-Schrittmotoren-Interface (USI 2) */
+#define FTDI_ELV_T1100_PID	0xF06B	/* Thermometer (T 1100) */
+#define FTDI_ELV_PCD200_PID	0xF06C	/* PC-Datenlogger (PCD 200) */
+#define FTDI_ELV_ULA200_PID	0xF06D	/* USB-LCD-Ansteuerung (ULA 200) */
+#define FTDI_ELV_ALC8500_PID	0xF06E	/* ALC 8500 Expert */
+#define FTDI_ELV_FHZ1000PC_PID	0xF06F	/* FHZ 1000 PC */
+#define FTDI_ELV_UR100_PID	0xFB58	/* USB-RS232-Umsetzer (UR 100) */
+#define FTDI_ELV_UM100_PID	0xFB5A	/* USB-Modul UM 100 */
+#define FTDI_ELV_UO100_PID	0xFB5B	/* USB-Modul UO 100 */
+/* Additional ELV PIDs that default to using the FTDI D2XX drivers on
+ * MS Windows, rather than the FTDI Virtual Com Port drivers.
+ * Maybe these will be easier to use with the libftdi/libusb user-space
+ * drivers, or possibly the Comedi drivers in some cases. */
+#define FTDI_ELV_CLI7000_PID	0xFB59	/* Computer-Light-Interface (CLI 7000) */
+#define FTDI_ELV_PPS7330_PID	0xFB5C	/* Processor-Power-Supply (PPS 7330) */
+#define FTDI_ELV_TFM100_PID	0xFB5D	/* Temperartur-Feuchte Messgeraet (TFM 100) */
+#define FTDI_ELV_UDF77_PID	0xFB5E	/* USB DCF Funkurh (UDF 77) */
+#define FTDI_ELV_UIO88_PID	0xFB5F	/* USB-I/O Interface (UIO 88) */
+>>>>>>> USB: ftdi_sio: add product ID for Lenz LI-USB:drivers/usb/serial/ftdi_sio_ids.h
 
 
 /* www.starting-point-systems.com µChameleon device */
