@@ -1002,3 +1002,11 @@ config MSM_SSBI
 	help
 	  Enable support for SSBI bus. This is required for communicatinig with
 	  Qualcomm PMICs and Audio codecs.
+
+config 8x50_OVERCLOCK
+	bool "Enable Overclocking QSD8X50"
+	depends on ARCH_QSD8X50
+	default n
+	help
+	  This enables freq 1036800-1113600 for QSD8X50
+	  

@@ -107,6 +107,11 @@ struct clkctl_acpu_speed acpu_freq_tbl[] = {
 	{ 921600, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x18, 0, 1300, 128000 },
 	{ 960000, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x19, 0, 1300, 128000 },
 	{ 998400, CCTL(CLK_TCXO, 1),		SRC_SCPLL, 0x1A, 0, 1300, 128000 },
+#ifdef CONFIG_8x50_OVERCLOCK
+	{ 1036800, CCTL(CLK_TCXO, 1),    	SRC_SCPLL, 0x1B, 0, 1300, 128000 },
+	{ 1075200, CCTL(CLK_TCXO, 1),    	SRC_SCPLL, 0x1C, 0, 1300, 128000 },
+	{ 1113600, CCTL(CLK_TCXO, 1),    	SRC_SCPLL, 0x1D, 0, 1300, 128000 },
+#endif
 	{ 0 },
 };
 
@@ -481,7 +486,7 @@ void __init acpu_freq_tbl_fixup(void)
 		pr_info("Efuse data on Max ACPU freq not present.\n");
 		goto skip_efuse_fixup;
 	}
-
+	/* Commented out for overclocking
 	switch (tcsr_spare2 & 0xF0) {
 	case 0x70:
 		max_acpu_khz = 768000;
@@ -498,7 +503,14 @@ void __init acpu_freq_tbl_fixup(void)
 			tcsr_spare2);
 		goto skip_efuse_fixup;
 	}
-
+	*/
+	
+	/* Override the fixup because we're overclocking */
+#ifdef CONFIG_8x50_OVERCLOCK	 
+	max_acpu_khz = 1113600;
+#else
+	max_acpu_khz = 998400;
+#endif
 	pr_info("Max ACPU freq from efuse data is %d KHz\n", max_acpu_khz);
 
 	for (i = 0; acpu_freq_tbl[i].acpu_khz != 0; i++) {
