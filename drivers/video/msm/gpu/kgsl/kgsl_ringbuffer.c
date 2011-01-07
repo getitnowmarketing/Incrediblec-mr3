@@ -1,7 +1,8 @@
 /*
  * (C) Copyright Advanced Micro Devices, Inc. 2002, 2007
  * Copyright (c) 2008-2009 QUALCOMM USA, INC.
- * 
+ * Copyright (C) 2010 Sony Ericsson Mobile Communications AB.
+ * Copyright (c) 2002,2007-2009, Code Aurora Forum. All rights reserved.
  * All source code in this file is licensed under the following license
  * 
  * This program is free software; you can redistribute it and/or
@@ -421,9 +422,7 @@ static int kgsl_ringbuffer_start(struct kgsl_ringbuffer *rb)
 
 	rb->timestamp = 0;
 	GSL_RB_INIT_TIMESTAMP(rb);
-
-	INIT_LIST_HEAD(&rb->memqueue);
-
+	
 	/* clear ME_HALT to start micro engine */
 	kgsl_yamato_regwrite(device, REG_CP_ME_CNTL, 0);
 
@@ -513,6 +512,8 @@ int kgsl_ringbuffer_init(struct kgsl_device *device)
 	rb->sizedwords = (2 << kgsl_cfg_rb_sizelog2quadwords);
 	rb->blksizequadwords = kgsl_cfg_rb_blksizequadwords;
 
+	INIT_LIST_HEAD(&rb->memqueue);
+	
 	/* allocate memory for ringbuffer, needs to be double octword aligned
 	* align on page from contiguous physical memory
 	*/
