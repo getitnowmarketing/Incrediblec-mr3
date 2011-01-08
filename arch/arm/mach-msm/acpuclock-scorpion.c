@@ -559,12 +559,13 @@ static void __init acpuclk_init(void)
 	/* Move to 768MHz for boot, which is a safe frequency
 	 * for all versions of Scorpion at the moment.
 	 */
+	/* Changed to boot @ 998mhz */
 	speed = acpu_freq_tbl;
 	for (;;) {
-		if (speed->acpu_khz == 768000)
+		if (speed->acpu_khz == 998400)
 			break;
 		if (speed->acpu_khz == 0) {
-			pr_err("acpuclk_init: cannot find 768MHz\n");
+			pr_err("acpuclk_init: cannot find 998MHz\n");
 			BUG();
 		}
 		speed++;
