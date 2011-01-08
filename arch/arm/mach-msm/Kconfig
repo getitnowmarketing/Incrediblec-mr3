@@ -1009,4 +1009,12 @@ config 8x50_OVERCLOCK
 	default n
 	help
 	  This enables freq 1036800-1113600 for QSD8X50
+
+config 8x50_OVERCLOCK_LVL2
+	bool "Enable High Overclocking QSD8X50"
+	depends on ARCH_QSD8X50 || 8x50_OVERCLOCK
+	default n
+	help
+	  This enables freq 1152000-1267200 for QSD8X50
+
 	  

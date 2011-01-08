@@ -112,6 +112,12 @@ struct clkctl_acpu_speed acpu_freq_tbl[] = {
 	{ 1075200, CCTL(CLK_TCXO, 1),    	SRC_SCPLL, 0x1C, 0, 1300, 128000 },
 	{ 1113600, CCTL(CLK_TCXO, 1),    	SRC_SCPLL, 0x1D, 0, 1300, 128000 },
 #endif
+#ifdef CONFIG_8x50_OVERCLOCK_LVL2
+	{ 1152000, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1E, 0, 1325, 128000 },
+	{ 1190400, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x1F, 0, 1325, 128000 },
+	{ 1228800, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x20, 0, 1350, 128000 },
+//	{ 1267200, CCTL(CLK_TCXO, 1), 		SRC_SCPLL, 0x21, 0, 1350, 128000 },
+#endif	
 	{ 0 },
 };
 
@@ -506,10 +512,15 @@ void __init acpu_freq_tbl_fixup(void)
 	*/
 	
 	/* Override the fixup because we're overclocking */
-#ifdef CONFIG_8x50_OVERCLOCK	 
-	max_acpu_khz = 1113600;
-#else
+#ifndef CONFIG_8x50_OVERCLOCK	 
 	max_acpu_khz = 998400;
+#endif
+#ifdef  CONFIG 8x50_OVERCLOCK_LVL2
+	max_acpu_khz = 1228800;	
+#else
+#ifdef  CONFIG_8x50_OVERCLOCK
+	max_acpu_khz = 1113600;
+#endif
 #endif
 	pr_info("Max ACPU freq from efuse data is %d KHz\n", max_acpu_khz);
 
