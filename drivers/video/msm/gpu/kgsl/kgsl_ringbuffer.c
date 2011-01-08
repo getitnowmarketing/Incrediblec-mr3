@@ -658,9 +658,9 @@ kgsl_ringbuffer_addcmds(struct kgsl_ringbuffer *rb,
 		/* Conditional execution based on memory values */
 		GSL_RB_WRITE(ringcmds,pm4_type3_packet(PM4_COND_EXEC, 4));
 		GSL_RB_WRITE(ringcmds,(rb->device->memstore.gpuaddr +
-			KGSL_DEVICE_MEMSTORE_OFFSET(ts_cmp_enable))) >> 2;
+			KGSL_DEVICE_MEMSTORE_OFFSET(ts_cmp_enable)) >> 2);
 		GSL_RB_WRITE(ringcmds,(rb->device->memstore.gpuaddr +
-			KGSL_DEVICE_MEMSTORE_OFFSET(ref_wait_ts))) >> 2;
+			KGSL_DEVICE_MEMSTORE_OFFSET(ref_wait_ts)) >> 2);
 		GSL_RB_WRITE(ringcmds,rb->timestamp);
 		/* # of conditional command DWORDs */
 		GSL_RB_WRITE(ringcmds, 2);
