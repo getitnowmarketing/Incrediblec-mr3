@@ -227,7 +227,6 @@ handle_t *ext4_journal_start_sb(struct super_block *sb, int nblocks)
 	if (sb->s_flags & MS_RDONLY)
 		return ERR_PTR(-EROFS);
 
-	vfs_check_frozen(sb, SB_FREEZE_TRANS);
 	/* Special case here: if the journal has aborted behind our
 	 * backs (eg. EIO in the commit thread), then we still need to
 	 * take the FS itself readonly cleanly. */
@@ -1215,11 +1214,6 @@ static int parse_options(char *options, struct super_block *sb,
 		if (!*p)
 			continue;
 
-		/*
-		 * Initialize args struct so we know whether arg was
-		 * found; some options take optional arguments.
-		 */
-		args[0].to = args[0].from = 0;
 		token = match_token(p, tokens, args);
 		switch (token) {
 		case Opt_bsd_df:
@@ -1505,11 +1499,10 @@ set_qf_format:
 			clear_opt(sbi->s_mount_opt, BARRIER);
 			break;
 		case Opt_barrier:
-			if (args[0].from) {
-				if (match_int(&args[0], &option))
-					return 0;
-			} else
-				option = 1;	/* No argument, default to 1 */
+			if (match_int(&args[0], &option)) {
+				set_opt(sbi->s_mount_opt, BARRIER);
+				break;
+			}
 			if (option)
 				set_opt(sbi->s_mount_opt, BARRIER);
 			else
@@ -1582,11 +1575,10 @@ set_qf_format:
 			set_opt(sbi->s_mount_opt,NO_AUTO_DA_ALLOC);
 			break;
 		case Opt_auto_da_alloc:
-			if (args[0].from) {
-				if (match_int(&args[0], &option))
-					return 0;
-			} else
-				option = 1;	/* No argument, default to 1 */
+			if (match_int(&args[0], &option)) {
+				clear_opt(sbi->s_mount_opt, NO_AUTO_DA_ALLOC);
+				break;
+			}
 			if (option)
 				clear_opt(sbi->s_mount_opt, NO_AUTO_DA_ALLOC);
 			else
@@ -3398,11 +3390,9 @@ int ext4_force_commit(struct super_block *sb)
 		return 0;
 
 	journal = EXT4_SB(sb)->s_journal;
-	if (journal) {
-		vfs_check_frozen(sb, SB_FREEZE_TRANS);
+	if (journal)
 		ret = ext4_journal_force_commit(journal);
-	}
-	
+
 	return ret;
 }
 
